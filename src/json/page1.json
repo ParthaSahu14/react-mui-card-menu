@@ -1,0 +1,152 @@
+{
+    "layouts": {
+        "LG" : {
+            "type": "Grid",
+            "props": {
+                "container": true,
+                "rowSpacing": 3
+            },
+            "children": [
+                {
+                    "type": "Grid",
+                    "props": {
+                        "item": true,
+                        "lg": 12
+                    },
+                    "children": [
+                        {
+                            "type": "Grid",
+                            "props": {
+                                "container": true,
+                                "item": true,
+                                "rowSpacing": 0,
+                                "columnSpacing": {
+                                    "lg": 2
+                                },
+                                "style": {
+                                    "display": "flex",
+                                    "flexDirection": "column",
+                                    "flexWrap": "wrap",
+                                    "alignContent": "flex-start",
+                                    "height": "320px",
+                                    "overflowX": "auto",
+                                    "overflowY": "hidden"
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Grid",
+                                    "text": "MI",
+                                    "props": {
+                                        "item": true,
+                                        "lg": 6
+                                    }
+                                },
+                                {
+                                    "type": "Grid",
+                                    "text": "TL",
+                                    "props": {
+                                        "item": true,
+                                        "lg": 6
+                                    }
+                                },
+                                {
+                                    "type": "Grid",
+                                    "text": "PL",
+                                    "props": {
+                                        "item": true,
+                                        "lg": 6
+                                    }
+                                },
+                                {
+                                    "type": "Grid",
+                                    "text": "TS",
+                                    "props": {
+                                        "item": true,
+                                        "lg": 6
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Grid",
+                    "props": {
+                        "item": true,
+                        "lg": 12
+                    },
+                    "children": [
+                        {
+                            "type": "Grid",
+                            "props": {
+                                "container": true,
+                                "item": true,
+                                "lg": 12
+                            },
+                            "children": [
+                                {
+                                    "type": "Grid",
+                                    "text": "Carousel",
+                                    "props": {
+                                        "item": true,
+                                        "lg": 12
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "XS": {
+            "type": "Grid",
+            "props": {
+                "container": true,
+                "rowSpacing": 3
+            },
+            "children": [
+                {
+                    "type": "Grid",
+                    "text": "MI",
+                    "props": {
+                        "item": true,
+                        "xs": 12
+                    }
+                },
+                {
+                    "type": "Grid",
+                    "text": "TL",
+                    "props": {
+                        "item": true,
+                        "xs": 12
+                    }
+                },
+                {
+                    "type": "Grid",
+                    "text": "PL",
+                    "props": {
+                        "item": true,
+                        "xs": 12
+                    }
+                },
+                {
+                    "type": "Grid",
+                    "text": "TS",
+                    "props": {
+                        "item": true,
+                        "xs": 12
+                    }
+                },
+                {
+                    "type": "Grid",
+                    "text": "Carousel",
+                    "props": {
+                        "item": true,
+                        "xs": 12
+                    }
+                }
+            ]
+        }
+    }
+}

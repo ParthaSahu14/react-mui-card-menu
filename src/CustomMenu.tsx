@@ -88,7 +88,7 @@ const CustomMenu: React.FC<IMenuProps> = ({ itemId, menuItemClicked }) => {
         <MenuItem
           onClick={(e) => {
             setAnchorEl(null);
-            menuItemClicked(itemId, e.target.innerText);
+            menuItemClicked(itemId, '');
           }}
         >
           <ShareIcon />
@@ -98,7 +98,7 @@ const CustomMenu: React.FC<IMenuProps> = ({ itemId, menuItemClicked }) => {
         <MenuItem
           onClick={(e) => {
             setAnchorEl(null);
-            menuItemClicked(itemId, e.target.innerText);
+            menuItemClicked(itemId, '');
           }}
         >
           <DownloadIcon />

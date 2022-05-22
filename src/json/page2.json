@@ -1,0 +1,101 @@
+{
+    "layouts": {
+        "type": "Grid",
+        "props": {
+            "container": true
+        },
+        "children": [
+            {
+                "type": "Grid",
+                "props": {
+                    "item": true,
+                    "lg": 9
+                },
+                "children": [
+                    {
+                        "type": "Grid",
+                        "props": {
+                            "container": true,
+                            "item": true,
+                            "rowSpacing": 3,
+                            "columnSpacing": {
+                                "lg": 3
+                            }
+                        },
+                        "children": [
+                            {
+                                "type": "Grid",
+                                "text": "RI",
+                                "props": {
+                                    "item": true,
+                                    "lg": 4
+                                }
+                            },
+                            {
+                                "type": "Grid",
+                                "text": "SM",
+                                "props": {
+                                    "item": true,
+                                    "lg": 4
+                                }
+                            },
+                            {
+                                "type": "Grid",
+                                "text": "IA",
+                                "props": {
+                                    "item": true,
+                                    "lg": 11.5,
+                                    "mt": 2
+                                }
+                            },
+                            {
+                                "type": "Grid",
+                                "text": "QS",
+                                "props": {
+                                    "item": true,
+                                    "lg": 11.5
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "Grid",
+                "props": {
+                    "item": true,
+                    "lg": 3
+                },
+                "children": [
+                    {
+                        "type": "Grid",
+                        "props": {
+                            "container": true,
+                            "item": true,
+                            "lg": 12,
+                            "spacing": 3
+                        },
+                        "children": [
+                            {
+                                "type": "Grid",
+                                "text": "LN",
+                                "props": {
+                                    "item": true,
+                                    "lg": 12
+                                }
+                            },
+                            {
+                                "type": "Grid",
+                                "text": "AC",
+                                "props": {
+                                    "item": true,
+                                    "lg": 12
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
