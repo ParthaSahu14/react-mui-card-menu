@@ -4,11 +4,18 @@ import { StyledEngineProvider } from '@mui/material/styles';
 import Demo from './demo';
 import Page2 from "./mui-page-2";
 import Page1 from "./mui-page-1";
+import ErrorBoundaryExample from "./ErrorBoundary/errorBoundaryExample";
+import ErrorBoundaryExample_1 from "./ErrorBoundary/errorBoundaryExample_1";
+
+// ReactDOM.render(
+//   <StyledEngineProvider injectFirst>
+//     {/* <Page1 /> */}
+//     <br/>
+//     {/* <Page2 /> */}
+//     <ErrorBoundaryExample />
+//   </StyledEngineProvider>, document.querySelector('#root')
+// );
 
 ReactDOM.render(
-  <StyledEngineProvider injectFirst>
-    <Page1 />
-    <br/>
-    {/* <Page2 /> */}
-  </StyledEngineProvider>, document.querySelector('#root')
+  <ErrorBoundaryExample_1 />, document.querySelector('#root')
 );
