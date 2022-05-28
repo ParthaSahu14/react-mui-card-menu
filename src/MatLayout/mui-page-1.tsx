@@ -1,25 +1,26 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
-import { Container, useTheme } from "@mui/material";
+import { Container, Skeleton, Stack, Typography, useTheme } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
-import pageLayout from "./json/page1.json";
+import pageLayout from "../json/page1.json";
 import useMediaQuery from '@mui/material/useMediaQuery';
-
-const Item = styled("div")(({ theme }) => ({
-  backgroundColor: "lightgreen",
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-  overflowY: "auto",
-  height: "300px",
-  minWidth: "300px",
-  maxWidth: "300px"
-}));
 
 interface IRenderChildrenProps {
   data: any;
 }
 
+// export default function SkeletonTypography() {
+//   return (
+//     <Grid container>
+//       <Grid item>
+//           <Typography variant="h1"><Skeleton /></Typography>
+//           <Typography variant="h3"><Skeleton /></Typography>
+//           <Typography variant="body1"><Skeleton /></Typography>
+//       </Grid>
+//     </Grid>
+//   );
+// }
 
 const RenderChildren: React.FC<IRenderChildrenProps> = ({ data }) => {
   const nestedChildren = (data.children || []).map((children: any, i: number) => {
@@ -28,10 +29,29 @@ const RenderChildren: React.FC<IRenderChildrenProps> = ({ data }) => {
     </Grid>
   })
 
+  
+
+  const Item = React.lazy(() => {
+    return Promise.all([
+      import("./Item"),
+      new Promise(resolve => setTimeout(resolve, 10000))
+    ])
+    .then(([moduleExports]) => moduleExports);
+  });
+
   return (
     <>
       {data.text && data.props.item && !data.props.container ? (
-        <Item>{data.text}</Item>
+        <React.Suspense fallback={
+          <Stack  sx={{ height: "300px", minWidth: "300px"}}>
+            <Typography variant="h3"><Skeleton /></Typography>
+            {/* <Skeleton variant="text" height={20}/> */}
+            {/* <Skeleton variant="circular" width={40} height={40} /> */}
+            <Skeleton variant="rectangular" height={'100%'}/>
+          </Stack>
+        }>
+          <Item text={data.text} />
+        </React.Suspense>
       ) : ''}
       {nestedChildren}
     </>
@@ -43,15 +63,17 @@ const page = pageLayout;
 export default function RowAndColumnSpacing() {
   const theme = useTheme();
   const [currentLayout, setCurrentLayout] = React.useState<any>(undefined);
-  const matchesXS = useMediaQuery(theme.breakpoints.only('xs'));
+  const matchesXS = useMediaQuery(theme.breakpoints.up('xs'));
   const matchesSM = useMediaQuery(theme.breakpoints.only('sm'));
   const matchesMD = useMediaQuery(theme.breakpoints.only('md'));
   const matchesLG = useMediaQuery(theme.breakpoints.only('lg'));
+  const matchesXL = useMediaQuery(theme.breakpoints.only('xl'));
 
   const currentBreakPoint = matchesLG ? 'LG' :
-    //matchesMD ? 'MD' :
-    //matchesSM ? 'SM' :
-    matchesXS ? 'XS' : null;
+    matchesXL ? 'XL' :
+      //matchesMD ? 'MD' :
+      //matchesSM ? 'SM' :
+      matchesXS ? 'XS' : null;
 
   React.useEffect(() => {
     console.log('right now currentBreakPoint :: ' + currentBreakPoint);
@@ -66,11 +88,11 @@ export default function RowAndColumnSpacing() {
   return (
     <>
       {!currentBreakPoint && !currentLayout ? <div>Loading...</div> :
-        (currentBreakPoint === 'LG' && currentLayout) ?
+        (currentBreakPoint && currentLayout) ?
           (
             <>
               <CssBaseline />
-              <Container maxWidth={"lg"} sx={{ bgcolor: "#cfe8fc" }}>
+              <Container  sx={{ bgcolor: "transparent" }}>
                 {currentLayout.type ? (
 
                   <Grid {...currentLayout.props}>
@@ -87,29 +109,7 @@ export default function RowAndColumnSpacing() {
               </Container>
             </>
           )
-          :
-          (currentBreakPoint === 'XS' && currentLayout) ?
-            (
-              <>
-                <CssBaseline />
-                <Container maxWidth={"xs"} sx={{ bgcolor: "#cfe8fc" }}>
-                  {currentLayout.type ? (
-
-                    <Grid {...currentLayout.props}>
-                      {currentLayout.children.map((child: any, i: number) => {
-                        return (
-                          <Grid key={i} {...child.props}>
-                            <RenderChildren data={child} />
-                          </Grid>
-                        );
-                      })}
-                    </Grid>
-
-                  ) : ''}
-                </Container>
-              </>
-            )
-            : ''}
+          : ''}
       {`currentBreakPoint :: ${currentBreakPoint}`}
     </>
   );

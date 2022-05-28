@@ -1,5 +1,104 @@
 {
     "layouts": {
+        "XL" : {
+            "type": "Grid",
+            "props": {
+                "container": true,
+                "rowSpacing": 3
+            },
+            "children": [
+                {
+                    "type": "Grid",
+                    "props": {
+                        "item": true,
+                        "xl": 12
+                    },
+                    "children": [
+                        {
+                            "type": "Grid",
+                            "props": {
+                                "container": true,
+                                "item": true,
+                                "rowSpacing": 0,
+                                "columnSpacing": {
+                                    "xl": 2
+                                },
+                                "style": {
+                                    "display": "flex",
+                                    "flexDirection": "column",
+                                    "flexWrap": "wrap",
+                                    "alignContent": "flex-start",
+                                    "height": "320px",
+                                    "overflowX": "auto",
+                                    "overflowY": "hidden"
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Grid",
+                                    "text": "MI",
+                                    "props": {
+                                        "item": true,
+                                        "xl": 6
+                                    }
+                                },
+                                {
+                                    "type": "Grid",
+                                    "text": "TL",
+                                    "props": {
+                                        "item": true,
+                                        "xl": 6
+                                    }
+                                },
+                                {
+                                    "type": "Grid",
+                                    "text": "PL",
+                                    "props": {
+                                        "item": true,
+                                        "xl": 6
+                                    }
+                                },
+                                {
+                                    "type": "Grid",
+                                    "text": "TS",
+                                    "props": {
+                                        "item": true,
+                                        "xl": 6
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Grid",
+                    "props": {
+                        "item": true,
+                        "lg": 12
+                    },
+                    "children": [
+                        {
+                            "type": "Grid",
+                            "props": {
+                                "container": true,
+                                "item": true,
+                                "lg": 12
+                            },
+                            "children": [
+                                {
+                                    "type": "Grid",
+                                    "text": "Carousel",
+                                    "props": {
+                                        "item": true,
+                                        "lg": 12
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
         "LG" : {
             "type": "Grid",
             "props": {
@@ -82,15 +181,24 @@
                             "props": {
                                 "container": true,
                                 "item": true,
-                                "lg": 12
+                                "lg": 12,
+                                "columnSpacing": 2
                             },
                             "children": [
                                 {
                                     "type": "Grid",
-                                    "text": "Carousel",
+                                    "text": "Carousel 1",
                                     "props": {
                                         "item": true,
-                                        "lg": 12
+                                        "lg": 6
+                                    }
+                                },
+                                {
+                                    "type": "Grid",
+                                    "text": "Carousel 2",
+                                    "props": {
+                                        "item": true,
+                                        "lg": 6
                                     }
                                 }
                             ]

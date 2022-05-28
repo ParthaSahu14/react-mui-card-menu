@@ -4,7 +4,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
-import pageLayout from "./json/page2.json";
+import pageLayout from "../json/page2.json";
 
 const page = pageLayout;
 
