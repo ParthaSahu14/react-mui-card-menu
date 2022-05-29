@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Grid - List view</title>
+    <style type="text/css">
+        body {
+            font-family: 'Helvetica';
+            background-color: #0e2439;
+        }
+
+        .filter-buttons {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .list-view-button,
+        .grid-view-button {
+            color: white;
+            border: 1px solid white;
+            padding: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .list-view-button:hover,
+        .grid-view-button:hover {
+            background: white;
+            color: #0e2439;
+        }
+
+        .list-view-button {
+            margin-right: 10px;
+        }
+
+        .list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        li {
+            background-color: #1f364d;
+            color: white;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+
+        .list.list-view-filter {
+            flex-direction: column;
+        }
+
+        .list.list-view-filter li {
+            padding: 10px;
+        }
+
+        .list.grid-view-filter {
+            flex-flow: row wrap;
+        }
+
+        .list.grid-view-filter li {
+            width: calc(20% - 210px);
+            padding: 100px;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        .list-data {
+            display: none;
+        }
+
+        .grid-data {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="filter-buttons">
+        <div class="list-view-button"><i class="fa fa-bars" aria-hidden="true"></i> List view</div>
+        <div class="grid-view-button"><i class="fa fa-th-large" aria-hidden="true"></i> Grid view</div>
+    </div>
+
+    <ol class="list list-view-filter">
+        <li>
+            <div class="list-data">List item 1</div>
+            <div class="grid-data">Grid Item 1</div>
+        </li>
+        <li>
+            <div class="list-data">List item 2</div>
+            <div class="grid-data">Grid Item 2</div>
+        </li>
+        <li>
+            <div class="list-data">List item 3</div>
+            <div class="grid-data">Grid Item 3</div>
+        </li>
+        <li>
+            <div class="list-data">List item 4</div>
+            <div class="grid-data">Grid Item 4</div>
+        </li>
+        <li>
+            <div class="list-data">List item 5</div>
+            <div class="grid-data">Grid Item 5</div>
+        </li>
+        <li>
+            <div class="list-data">List item 6</div>
+            <div class="grid-data">Grid Item 6</div>
+        </li>
+    </ol>
+
+    <script type="text/javascript">
+        const listViewButton = document.querySelector('.list-view-button');
+        const gridViewButton = document.querySelector('.grid-view-button');
+        const list = document.querySelector('ol');
+        const listItemDiv = document.querySelectorAll('ol li .list-data');
+        const gridItemDiv = document.querySelectorAll('ol li .grid-data');
+
+        listViewButton.onclick = function () {
+            list.classList.remove('grid-view-filter');
+            list.classList.add('list-view-filter');
+
+            for (var i = 0; i < gridItemDiv.length; ++i) {
+                gridItemDiv[i].classList.add('grid-data');
+            }
+            for (var i = 0; i < listItemDiv.length; ++i) {
+                listItemDiv[i].classList.remove('list-data');
+            }
+        }
+
+        gridViewButton.onclick = function () {
+            list.classList.remove('list-view-filter');
+            list.classList.add('grid-view-filter');
+
+            for (var i = 0; i < gridItemDiv.length; ++i) {
+                gridItemDiv[i].classList.remove('grid-data');
+            }
+            for (var i = 0; i < listItemDiv.length; ++i) {
+                listItemDiv[i].classList.add('list-data');
+            }
+        }
+    </script>
+</body>
+
+</html>
