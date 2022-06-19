@@ -2,11 +2,11 @@ import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } f
 import { NavigateFunction } from "react-router-dom";
 import { triggerLogin } from "./helper";
 
-declare module 'axios' {
-    export interface AxiosRequestConfig {
-      _retry: boolean;
-    }
-  }
+// declare module 'axios' {
+//     export interface AxiosRequestConfig {
+//       _retry: boolean;
+//     }
+//   }
 
 const onRequest = (config: AxiosRequestConfig): AxiosRequestConfig => {
     console.info(`[request] [${JSON.stringify(config)}]`);
@@ -26,8 +26,8 @@ const onResponse = (response: AxiosResponse): AxiosResponse => {
 const onResponseError = async (error: AxiosError, navigate: NavigateFunction): Promise<AxiosError> => {
     const originalRequest = error.config;
     
-    if (error.response?.status === 403 && !originalRequest._retry) {
-        originalRequest._retry = true;
+    if (error.response?.status === 403) {
+        //originalRequest._retry = true;
         triggerLogin().then(authres => {
             console.log('authres', authres.status);
             if (authres.status === 200) {

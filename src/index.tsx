@@ -9,6 +9,7 @@ import ErrorBoundaryExample_1 from "./ErrorBoundary/errorBoundaryExample_1";
 import Test from "./testAxiosInterceptor/test";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AxiosInterceptorNavigate from './testAxiosInterceptor/requests/AxiosInterceptorNavigate';
+import SimpleSnackbar from "./snackbarToast/toast";
 
 ReactDOM.render(
   <StyledEngineProvider injectFirst>
@@ -16,6 +17,7 @@ ReactDOM.render(
            {<AxiosInterceptorNavigate />}
             <Routes>
               <Route path='/intercept' element={<Test />} />
+              <Route path='/toast' element={<SimpleSnackbar />} />
             </Routes>
        </BrowserRouter>
   </StyledEngineProvider>, document.querySelector('#root')
