@@ -10,16 +10,18 @@ import Test from "./testAxiosInterceptor/test";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AxiosInterceptorNavigate from './testAxiosInterceptor/requests/AxiosInterceptorNavigate';
 import SimpleSnackbar from "./snackbarToast/toast";
+import PdfViewer from "./PdfViwer/PdfViewer";
 
 ReactDOM.render(
   <StyledEngineProvider injectFirst>
     <BrowserRouter>
-           {<AxiosInterceptorNavigate />}
-            <Routes>
-              <Route path='/intercept' element={<Test />} />
-              <Route path='/toast' element={<SimpleSnackbar />} />
-            </Routes>
-       </BrowserRouter>
+      {<AxiosInterceptorNavigate />}
+      <Routes>
+        <Route path='/intercept' element={<Test />} />
+        <Route path='/toast' element={<SimpleSnackbar />} />
+        <Route path='/pdf' element={<PdfViewer />} />
+      </Routes>
+    </BrowserRouter>
   </StyledEngineProvider>, document.querySelector('#root')
 );
 
