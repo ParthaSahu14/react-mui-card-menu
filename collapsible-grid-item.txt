@@ -1,0 +1,69 @@
+// collapsible grid item
+
+import * as React from "react";
+import Collapse from "@mui/material/Collapse";
+import { Grid, Paper, styled } from "@mui/material";
+
+export default function TransitionGroupExample() {
+  return (
+    <div>
+      <Testapp />
+    </div>
+  );
+}
+
+const CollapseStyle = styled(Collapse)`
+  .collapseHidden {
+    padding: "0 !important";
+  }
+`;
+
+export function Testapp() {
+  const [testOn, setTestOn] = React.useState(true);
+
+  return (
+    <>
+      <div>
+        <Grid container columnSpacing={2} rowSpacing={2}>
+          <Grid item xs={12}>
+            <Paper style={{ padding: "10px", border: "1px solid red" }}>
+              xs=12
+            </Paper>
+          </Grid>
+          <Grid item xs={12} sm={12} lg={12}>
+            <CollapseStyle
+              in={!testOn}
+              classes={{ hidden: "collapseHidden" }}
+              sx={{ width: "100%" }}
+            >
+              <Grid container>
+                <Grid item xs={6} sm={6} lg={6}>
+                  <Paper style={{ padding: "10px", border: "1px solid red" }}>
+                    xs=12 sm=6
+                  </Paper>
+                </Grid>
+                <Grid item xs={6} sm={6} lg={6}>
+                  <Paper style={{ padding: "10px", border: "1px solid red" }}>
+                    xs=12 sm=6
+                  </Paper>
+                </Grid>
+              </Grid>
+              <div>
+                Some dummy text with <a href="#">Links</a>
+              </div>
+            </CollapseStyle>
+          </Grid>
+        </Grid>
+      </div>
+      <br />
+      <div
+        style={{ float: "right" }}
+        onClick={() => setTestOn((prev) => !prev)}
+      >
+        {testOn ? "See More" : "See Less"}
+      </div>
+    </>
+  );
+}
+
+//https://codesandbox.io/s/determined-lichterman-i5sq4b?file=/demo.js
